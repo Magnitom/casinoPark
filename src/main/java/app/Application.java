@@ -7,6 +7,8 @@ import api.User;
 import impl.GameChooserImpl;
 import impl.RegistratorImpl;
 
+import java.util.Scanner;
+
 public class Application {
 
   public static void main(String[] args) {
@@ -17,14 +19,20 @@ public class Application {
       Game game = gameChooser.chooseGame(user);
       game.play();
       System.out.println(user.getName() + ", у тебя на счете " + user.getMoney());
-      // TODO Продумать систему выхода из казино
+      System.out.println("Хотите продолжить игру?");
+      String gameOver = new Scanner(System.in).nextLine();
+      if (gameOver.equalsIgnoreCase("нет")){
+        System.out.println("До свидания!");
+        break;
+      }
     } while (isUserAvailableToPlay(user));
   }
 
   private static boolean isUserAvailableToPlay(User user) {
-    // TODO Сделать проверку, что пользователь может играть в казино.
-    //  В случае, если у пользователя закончились деньги, предложить пополнить
-    return true;
+    if (user.getMoney() <= 0){
+      System.out.println("У вас на счёте недостаточно средств, пополните счёт. До свидания!");
+      return false;
+    }else return true;
   }
 
 }
