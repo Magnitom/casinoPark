@@ -11,24 +11,29 @@ public class GameChooserImpl implements GameChooser {
 
     @Override
     public Game chooseGame(User user) {
-        System.out.print("Выберете игру:\n * Угадать число\n * Загадать число\nВаш вариант: ");
-        ArrayList<String> listOfGame = new ArrayList<>();
-        listOfGame.add("Угадать число");
-        listOfGame.add("Загадать число");
+        System.out.print("Выберете игру, набрав её порядковый номер:\n 1. Угадать число\n 2. Загадать число\n 3. Поле чудес\n Ваш вариант: ");
         Scanner scanner = new Scanner(System.in);
-        String gameName;
+//        String gameName;
+//        do {
+//            gameName = scanner.nextLine();
+//            if (listOfGame.contains(gameName)) {
+//                break;
+//            } else {
+//                System.out.println("Вы ввели не верное название игры, попробуйте снова: ");
+//            }
+//        } while (true);
         do {
-            gameName = scanner.nextLine();
-            if (listOfGame.contains(gameName)) {
-                break;
-            } else {
-                System.out.println("Вы ввели не верное название игры, попробуйте снова: ");
+            String gameChoose = scanner.nextLine();
+            switch (gameChoose) {
+                case "1":
+                    return new GuessNumberGame(user);
+                case "2":
+                    return new ThinkOfNumberGame(user);
+                case "3":
+                    return new FieldOfMiracleGame(user);
+                default:
+                    System.out.println("Вы ввели не существующую игру, попробуйте снова: ");
             }
         } while (true);
-        switch (gameName) {
-            case "Угадать число": return new GuessNumberGame(user);
-            case "Загадать число": return new ThinkOfNumberGame(user);
-            default: return null;
-        }
     }
 }
