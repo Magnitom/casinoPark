@@ -16,13 +16,15 @@ public class FieldOfMiracleGame extends Game {
 
     private ArrayList<String> listGuessLetter = new ArrayList<>();
 
+    private static final double KOEF_TRIES = 1.5;
+
     @Override
     public void play() {
         long bet = makeBet();
         ArrayList<String> wordsList = initWords();
         int pickWord = new Random().nextInt(wordsList.size() - 1);
         String word = wordsList.get(pickWord);
-        COUNT_OF_TRIES = (int)(word.length()/1.5);
+        COUNT_OF_TRIES = (int)(word.length()/KOEF_TRIES);
         ArrayList<String> wordList = new ArrayList<String>(Arrays.asList(word.split("")));
         System.out.println("В этой игре нужно отгадать слово, предварительно отгадывая буквы.");
         System.out.println("В загаданном слове " + word.length() + " букв.");
