@@ -6,7 +6,9 @@ public abstract class Game {
 
     protected final User user;
 
-    protected static final int COUNT_OF_TRIES = 5;
+    protected int COUNT_OF_TRIES = 5;
+
+    protected int currentTry = 0;
 
     public Game(User user) {
         this.user = user;
@@ -32,5 +34,11 @@ public abstract class Game {
             }
         } while (true);
         return betLong;
+    }
+
+    protected boolean checkCountOfTries(int currentTry) {
+        if (currentTry >= COUNT_OF_TRIES) {
+            return true;
+        } else return false;
     }
 }

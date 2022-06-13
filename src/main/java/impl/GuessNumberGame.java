@@ -18,7 +18,7 @@ public class GuessNumberGame extends Game {
         System.out.println("Загадано число, требуется угадать за 5 попыток...");
         Random random = new Random();
         int numberToGuess = random.nextInt(100);
-        int currentTry = 0;
+//        int currentTry = 0;
         while (true) {
             if (currentTry == COUNT_OF_TRIES) {
                 System.out.println("Проигрыш! Вы исчерпали количество попыток. Было загадано число - " + numberToGuess);

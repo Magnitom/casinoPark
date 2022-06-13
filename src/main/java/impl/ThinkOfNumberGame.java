@@ -20,7 +20,7 @@ public class ThinkOfNumberGame extends Game {
         long bet = makeBet();
         checkUserReady();
         Random random = new Random();
-        int currentTry = 0;
+//        int currentTry = 0;
         int numberToGuess = random.nextInt(100);
         if (guessUsersNumber(numberToGuess, currentTry)) {
             user.reduceMoney(bet);
@@ -73,11 +73,5 @@ public class ThinkOfNumberGame extends Game {
                 System.out.println("Вы ввели не корректное значение, попробуйте снова");
             }
         } while (true);
-    }
-
-    private boolean checkCountOfTries(int currentTry) {
-        if (currentTry >= COUNT_OF_TRIES) {
-            return true;
-        } else return false;
     }
 }
