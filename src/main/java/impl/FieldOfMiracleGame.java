@@ -44,7 +44,7 @@ public class FieldOfMiracleGame extends Game {
         } while (!checkCountOfTries(currentTry));
         if (checkCountOfTries(currentTry)) {
             user.reduceMoney(bet);
-            System.out.println("Проигрыш! Вы исчерпали количество попыток отгадать буквы");
+            System.out.println("Проигрыш! Вы исчерпали количество попыток отгадать буквы. Загаданное слово было: " + word);
         }
     }
 
@@ -112,7 +112,7 @@ public class FieldOfMiracleGame extends Game {
             System.out.println("Поздравялем, вы отгадали слово!");
             return true;
         } else {
-            System.out.println("Вы не отгадали слово.");
+            System.out.println("Вы не отгадали слово. Загаданное слово было: " + word);
             return false;
         }
     }
