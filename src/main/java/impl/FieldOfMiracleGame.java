@@ -24,7 +24,6 @@ public class FieldOfMiracleGame extends Game {
         String word = wordsList.get(pickWord);
         COUNT_OF_TRIES = (int)(word.length()/1.5);
         ArrayList<String> wordList = new ArrayList<String>(Arrays.asList(word.split("")));
-//        System.out.println(pickWord + "  " + wordsList.size() + "  " + word);
         System.out.println("В этой игре нужно отгадать слово, предварительно отгадывая буквы.");
         System.out.println("В загаданном слове " + word.length() + " букв.");
         System.out.println("У вас есть " + COUNT_OF_TRIES + " попыток отгадать буквы и 1 попытка отгадать слово.");
